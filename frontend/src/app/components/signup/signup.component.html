@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-title class="title_center">
+    Sign-Up
+  </mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="signupForm" (ngSubmit)="signup()" novalidate>
+      <p>
+        <mat-form-field>
+          <input matInput type="text" matInput placeholder="name" formControlName="name">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input matInput type="text" matInput placeholder="email" formControlName="email">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input matInput type="password" matInput placeholder="password" formControlName="password">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input matInput type="confirmpassword" matInput placeholder="confirmpassword" formControlName="confirmpassword">
+        </mat-form-field>
+      </p>
+      <div>
+        Already have an account?
+        <a mat-button routerLink="/login">Login</a> <!-- Added link to Sign Up page -->
+      </div> 
+
+      <div class="button" style="text-align: center;">
+        <div>
+          <button type="submit" mat-button>Sign Up</button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

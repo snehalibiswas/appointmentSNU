@@ -1,0 +1,54 @@
+<mat-toolbar color="blue">
+  <span>
+    <span><i class="fa-brands fa-squarespace"></i></span>
+  </span>
+
+  <form role="search" id="form">
+    <input type="search" id="query" name="q" placeholder="Search..." aria-label="Search through site content">
+    <button>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </form>
+
+<div class="dropdown">
+
+  <button class="dropbtn">Department</button>
+  <div class="dropdown-content" >
+    <div *ngFor="let item of data">
+      <a href="#" (click)="itemclick(item)">{{item.DepartmentName}}</a>
+
+    </div>
+
+  </div>
+</div>
+
+  <!-- <div >
+    <button class="dropbtn">Dropdown</button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div> -->
+
+
+  <span *ngIf="isAuthenticated">
+    <button>
+      <i class="fa-solid fa-house"></i>
+    </button>
+
+    <button>
+      <i class="fa-solid fa-bullseye"></i>
+    </button>
+  </span>
+
+
+  <span *ngIf="!isAuthenticated">
+    <a routerLinkActive="active-link" routerLink="/login">
+      <span>Login</span>
+    </a>
+    <a routerLinkActive="active-link" routerLink="/signup">
+      <span>Signup</span>
+    </a>
+  </span>
+</mat-toolbar>
