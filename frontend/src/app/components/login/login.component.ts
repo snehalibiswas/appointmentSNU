@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    // console.log("Hit login");
+    console.log('Logging in with email:', this.loginForm.value.email);
     console.log(this.loginForm.value.email, this.loginForm.value.password);
     this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
       (response) => {
@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
         if (response.token) {
           // Redirect to the home page (change 'home' to the actual route path)
           // console.log("Yoyo");
+          localStorage.setItem('useremail', this.loginForm.value.email);
           this.router.navigate(["/home"]);
         } else {
           // Handle unsuccessful login here

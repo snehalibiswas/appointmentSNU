@@ -3,24 +3,22 @@
     <span><i class="fa-brands fa-squarespace"></i></span>
   </span>
 
-  <form role="search" id="form">
+
+  <form *ngIf="isAuthenticated" role="search" id="form">
     <input type="search" id="query" name="q" placeholder="Search..." aria-label="Search through site content">
     <button>
       <i class="fa-solid fa-magnifying-glass"></i>
     </button>
   </form>
 
-<div class="dropdown">
-
-  <button class="dropbtn">Department</button>
-  <div class="dropdown-content" >
-    <div *ngFor="let item of data">
-      <a href="#" (click)="itemclick(item)">{{item.DepartmentName}}</a>
-
+  <div *ngIf="isAuthenticated" class="dropdown">
+    <button class="dropbtn">Department</button>
+    <div class="dropdown-content">
+      <div *ngFor="let item of data">
+        <a routerLink="/dept/{{ item.DeptID }}" (click)="itemClick(item)">{{item.DepartmentName}}</a>
+      </div>
     </div>
-
   </div>
-</div>
 
   <!-- <div >
     <button class="dropbtn">Dropdown</button>
@@ -34,21 +32,27 @@
 
   <span *ngIf="isAuthenticated">
     <button>
-      <i class="fa-solid fa-house"></i>
+      <i routerLink="/home" class="fa-solid fa-house"></i>
     </button>
 
     <button>
       <i class="fa-solid fa-bullseye"></i>
     </button>
+
+    <a routerLinkActive="active-link" routerLink="/login">
+      <span><i class="fa-solid fa-right-to-bracket" (click)="logout()"></i></span>
+    </a>
+
   </span>
 
 
   <span *ngIf="!isAuthenticated">
-    <a routerLinkActive="active-link" routerLink="/login">
-      <span>Login</span>
-    </a>
-    <a routerLinkActive="active-link" routerLink="/signup">
+    <!-- <a routerLinkActive="active-link" routerLink="/login">
+      <span><i class="fa-solid fa-right-to-bracket"></i></span>
+    </a> -->
+    <span> </span>
+    <!-- <a routerLinkActive="active-link" routerLink="/signup">
       <span>Signup</span>
-    </a>
+    </a> -->
   </span>
 </mat-toolbar>

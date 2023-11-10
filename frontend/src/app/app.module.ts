@@ -13,6 +13,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatListModule } from "@angular/material/list";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatSelectModule } from '@angular/material/select';
 
 import { NavigationComponent } from "./components/navigation/navigation.component";
 import { SignupComponent } from "./components/signup/signup.component";
@@ -22,9 +23,10 @@ import { HomeComponent } from "./components/home/home.component";
 // import { CreatePostComponent } from "./components/create-post/create-post.component";
 
 import { DropDownListModule, ComboBoxModule, AutoCompleteModule, MultiSelectModule, ListBoxModule, DropDownTreeModule, MentionModule } from '@syncfusion/ej2-angular-dropdowns';
-
+import { FormsModule }   from '@angular/forms';
 import { AuthInterceptorService } from "./services/auth-interceptor.service";
 import { DepartmentComponent } from './components/department/department.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -34,16 +36,19 @@ import { DepartmentComponent } from './components/department/department.componen
     LoginComponent,
     HomeComponent,
     DepartmentComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
+    FormsModule,
     MatButtonModule,
     MatCardModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
+    MatSelectModule,
     MatToolbarModule,
     ReactiveFormsModule,
     HttpClientModule,

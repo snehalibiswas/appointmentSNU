@@ -1,0 +1,18 @@
+<p>profile works!</p>
+{{user | json}}
+
+<div>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject" ngModel>
+     
+      <label for="startTime">Start Time:</label>
+      <input type="datetime-local" id="startTime" name="startTime" ngModel>
+     
+      <label for="endTime">End Time:</label>
+      <input type="datetime-local" id="endTime" name="endTime" ngModel>
+     
+      <button type="submit">Submit</button>
+     </form>
+  
+  </div>

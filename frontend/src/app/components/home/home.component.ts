@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-
+  currentUser: any;
+  constructor() {
+  };
+  ngOnInit(): void {
+    this.currentUser = localStorage.getItem('useremail');
+    console.log(this.currentUser)
+  }
 }

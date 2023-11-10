@@ -25,6 +25,8 @@ export class NavigationComponent {
     });
   }
 
+  
+
   getdepartment() {
     this.http.get("http://localhost:3000/api/departments/")
       .subscribe((resultData: any) => {
@@ -35,15 +37,19 @@ export class NavigationComponent {
 
   logout(): void {
     localStorage.removeItem("token");
+    localStorage.removeItem("useremail");
     this.authService.isUserLoggedIn$.next(false);
     this.router.navigate(["login"]);
   }
 
-  itemclick(item: any) {
-    console.log(item.DeptID)
-    this.new_route = "/dept/"+item.DeptID;
-    window.location.href = "/dept/" + item.DeptID;
-    // this.router.navigate([this.new_route]);
+  itemClick(item: any) {
+    console.log('Item clicked:', item);
+    // console.log('Navigating to:', item.DeptID);
+    // this.new_route = "/dept/" + item.DeptID;
+    // this.router.navigate([this.new_route]).then(() => {
+    //   console.log('Navigation complete');
+    // });
   }
+  
 
 }

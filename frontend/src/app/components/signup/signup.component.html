@@ -24,6 +24,25 @@
           <input matInput type="confirmpassword" matInput placeholder="confirmpassword" formControlName="confirmpassword">
         </mat-form-field>
       </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>What's your role in the organization?</mat-label>
+          <mat-select formControlName="role">
+            <mat-option value="student">Student</mat-option>
+            <mat-option value="faculty">Faculty</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a department</mat-label>
+          <mat-select formControlName="department">
+            <mat-option *ngFor="let dept of departments" [value]="dept.DeptID">{{dept.DepartmentName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+
       <div>
         Already have an account?
         <a mat-button routerLink="/login">Login</a> <!-- Added link to Sign Up page -->
