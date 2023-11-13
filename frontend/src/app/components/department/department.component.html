@@ -1,7 +1,13 @@
-{{id}}
-{{deptname |json}}
+<!-- {{id}}
+{{deptname |json}} -->
 
-<div *ngFor="let user of users">
+<h2>Department of {{ deptname [0].DepartmentName}}</h2>
+
+<app-professor-list 
+    [users]="users"
+></app-professor-list>
+
+<!-- <div *ngFor="let user of users">
     <a routerLink="/profile/{{ user.id }}">{{user.name}}</a>
-</div>
+</div> -->
 

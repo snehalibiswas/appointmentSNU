@@ -27,6 +27,8 @@ import { FormsModule }   from '@angular/forms';
 import { AuthInterceptorService } from "./services/auth-interceptor.service";
 import { DepartmentComponent } from './components/department/department.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProfessorListComponent } from './components/professor-list/professor-list.component';
+import { ProfessorCardComponent } from './components/professor-card/professor-card.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     DepartmentComponent,
     ProfileComponent,
+    ProfessorListComponent,
+    ProfessorCardComponent,
   ],
   imports: [
     BrowserModule,
