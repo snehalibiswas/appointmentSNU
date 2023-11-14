@@ -10,7 +10,7 @@ const ports = process.env.PORT || 3000;
 
 const mysql = require("mysql");
 const db = mysql.createConnection({
- 
+
   host: "localhost",
   user: "root",
   password: "Telepath10",
@@ -44,7 +44,7 @@ app.use('/auth', authRoutes);
 app.get("/api/departments/", (req, res) => {
   var sql = "SELECT * FROM departments";
   db.query(sql, function (error, result) {
-      console.log(error);
+    console.log(error);
     if (error) {
       console.log("Error Connecting to DB");
     } else {
@@ -56,7 +56,7 @@ app.get("/api/departments/", (req, res) => {
 app.get("/api/departments/getName/:deptid", (req, res) => {
   var sql = "SELECT DepartmentName FROM departments WHERE DeptID=" + Number(req.params.deptid);
   db.query(sql, function (error, result) {
-      console.log(error);
+    console.log(error);
     if (error) {
       console.log("Error Connecting to DB");
     } else {
@@ -66,9 +66,9 @@ app.get("/api/departments/getName/:deptid", (req, res) => {
 });
 
 app.get("/api/users/getUsers/:deptid", (req, res) => {
-  var sql = "SELECT * FROM users WHERE role='faculty' and DeptID=" + Number(req.params.deptid) ;
+  var sql = "SELECT * FROM users WHERE role='faculty' and DeptID=" + Number(req.params.deptid);
   db.query(sql, function (error, result) {
-      console.log(error);
+    console.log(error);
     if (error) {
       console.log("Error Connecting to DB");
     } else {
@@ -78,9 +78,9 @@ app.get("/api/users/getUsers/:deptid", (req, res) => {
 });
 
 app.get("/api/users/getUserProfile/:id", (req, res) => {
-  var sql = "SELECT * FROM users WHERE ID=" + Number(req.params.id) ;
+  var sql = "SELECT * FROM users WHERE ID=" + Number(req.params.id);
   db.query(sql, function (error, result) {
-      console.log(error);
+    console.log(error);
     if (error) {
       console.log("Error Connecting to DB");
     } else {
@@ -101,7 +101,7 @@ app.post("/api/meetings/add", (req, res) => {
   console.log(details);
 
   let sql = "INSERT INTO meetings (title, starttime, endtime, scheduled_by, scheduled_with) VALUES (?, STR_TO_DATE(?, '%Y-%m-%dT%H:%i:%s.000Z'), STR_TO_DATE(?, '%Y-%m-%dT%H:%i:%s.000Z'), ?, ?)";
-  
+
   // Extract values from the details object and create an array
   let values = [
     details.title,
@@ -124,7 +124,7 @@ app.post("/api/meetings/add", (req, res) => {
 app.get("/api/users/:useremail", (req, res) => {
   var useremail = req.params.useremail;
   console.log("PRINTINH USERNAME", req.params.useremail);
-  var sql = "SELECT * FROM users WHERE email='"+ useremail+ "'";
+  var sql = "SELECT * FROM users WHERE email='" + useremail + "'";
   console.log(sql);
   db.query(sql, function (error, result) {
     if (error) {
@@ -132,6 +132,39 @@ app.get("/api/users/:useremail", (req, res) => {
     } else {
       res.send({ status: true, data: result });
     }
+  });
+});
+
+app.put("/api/users/update/:useremail", (req, res) => {
+  console.log("Begin update");
+  const sql = `
+  UPDATE users
+  SET name = ?, email = ?, password = ?, role = ?, room_no = ?, research = ?, work = ?, education = ?, awards=?
+  WHERE email = ?;
+`;
+
+  const values = [
+    req.body.username,
+    req.body.email,
+    req.body.password,
+    req.body.role,
+    req.body.roomno,
+    req.body.research,
+    req.body.workexperience,
+    req.body.education,
+    req.body.awards,
+    req.body.email // Assuming there is an 'id' field in req.body
+  ];
+
+  db.query(sql, values, (error, results, fields) => {
+    if (error) {
+      console.error('Error updating user:', error);
+      // Handle the error appropriately (send an error response, log, etc.)
+    } else {
+      console.log('User updated successfully');
+      // Handle the success (send a success response, redirect, etc.)
+    }
+
   });
 });
 

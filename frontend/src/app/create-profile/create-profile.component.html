@@ -5,9 +5,9 @@
         <img src="assets/my-image.png" alt="User Image" class="user-image">
         <br><br>
         <div class="links">
-            <a href="#" class="profile-link">Dashboard</a>
-            <a href="#" class="profile-link">Time-Table</a>
-            <a href="#" class="profile-link">Meetings</a>
+            <a routingLink="/create-profile" class="profile-link">Dashboard</a>
+            <!-- <a href="#" class="profile-link">Time-Table</a>
+            <a href="#" class="profile-link">Meetings</a> -->
         </div>
     </div>
     <!-- Right Section -->
@@ -45,7 +45,11 @@
                 <label for="workExperience">Work Experience:</label>
                 <textarea [(ngModel)]="workexperience" [ngModelOptions]="{standalone: true}" id="workExperience" name="workExperience" placeholder="Enter work experience details"></textarea>
             </div>
-            <button type="submit">Submit</button>
+            <div class="form-field">
+                <label for="awards">Awards:</label>
+                <textarea [(ngModel)]="awards" [ngModelOptions]="{standalone: true}" id="awards" name="awards" placeholder="Enter awards details"></textarea>
+            </div>
+            <button type="submit" (click)="Onsubmit()">Submit</button>
         </form>
     </div>
 </div>

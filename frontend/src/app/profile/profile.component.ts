@@ -47,9 +47,9 @@ export class ProfileComponent {
     };
     this.http.post("http://localhost:3000/api/meetings/add", event).subscribe((resultData: any) => {   //this.http -> server : sevrer.post -> server.js fill
       console.log(resultData);
-      // alert("Meeting Registered Successfully")
       // this.getAllStudent();
     });
+    alert("Meeting Registered Successfully")
     // this.data.push(event);
   }
 

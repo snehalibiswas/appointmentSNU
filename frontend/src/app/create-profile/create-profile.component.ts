@@ -17,8 +17,10 @@ export class CreateProfileComponent {
   research: string="";
   education: string="";
   workexperience: string="";
+  awards: string="";
   public currentUser: any;
   user: any=[];
+  // hashpassword=await bcrypt.hash(this.password, 12);
 
   constructor(private http: HttpClient) {
     this.currentUser = localStorage.getItem('useremail');
@@ -41,11 +43,41 @@ export class CreateProfileComponent {
         this.email = this.user[0].email;
         this.password = this.user[0].password;
         this.role = this.user[0].role;
-        this.roomno = this.user[0].roomno;
+        this.roomno = this.user[0].room_no;
         this.research = this.user[0].research;
-        this.workexperience = this.user[0].workexperience;
+        this.workexperience = this.user[0].work;
         this.education = this.user[0].education;
+        this.awards=this.user[0].awards;
       });
+  }
+
+  Onsubmit(){
+    this.UpdateRecords();
+    this.getDetails();
+  }
+
+
+
+  UpdateRecords() {
+    let bodyData =
+    {
+      "username": this.username,
+      "email": this.email,
+      "password": this.password,
+      "role": this.role,
+      "roomno":this.roomno,
+      "research": this.research,
+      "workexperience": this.workexperience,
+      "education": this.education,
+      "awards": this.awards
+    };
+
+    this.http.put("http://localhost:3000/api/users/update" + "/" + this.currentUser, bodyData).subscribe((resultData: any) => {
+      console.log(resultData);
+    });
+    console.log("User updated");
+    alert("User Details Updated")
+    this.getDetails();
   }
 
 }
