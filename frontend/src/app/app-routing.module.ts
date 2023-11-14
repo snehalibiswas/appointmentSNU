@@ -7,6 +7,7 @@ import { LoginComponent } from "./components/login/login.component";
 import { SignupComponent } from "./components/signup/signup.component";
 import { DepartmentComponent } from './components/department/department.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: "signup", component: SignupComponent },
   { path: "home", component: HomeComponent },
   { path: 'dept/:id', component: DepartmentComponent },
+  { path: 'create-profile', component: CreateProfileComponent },
   { path: 'profile/:id', component: ProfileComponent }
 
 ];
