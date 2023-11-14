@@ -29,6 +29,7 @@ import { DepartmentComponent } from './components/department/department.componen
 import { ProfileComponent } from './profile/profile.component';
 import { ProfessorListComponent } from './components/professor-list/professor-list.component';
 import { ProfessorCardComponent } from './components/professor-card/professor-card.component';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ProfessorCardComponent } from './components/professor-card/professor-ca
     ProfileComponent,
     ProfessorListComponent,
     ProfessorCardComponent,
+    CreateProfileComponent,
   ],
   imports: [
     BrowserModule,
