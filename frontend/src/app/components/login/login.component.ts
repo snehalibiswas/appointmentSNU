@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
           // Redirect to the home page (change 'home' to the actual route path)
           // console.log("Yoyo");
           localStorage.setItem('useremail', this.loginForm.value.email);
+          localStorage.setItem('userpassword', this.loginForm.value.password);
           this.router.navigate(["/home"]);
         } else {
           // Handle unsuccessful login here
@@ -45,6 +46,7 @@ export class LoginComponent implements OnInit {
         }
       },
       (error) => {
+        alert("unsuccesful login")
         // Handle errors here
       }
     );

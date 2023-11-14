@@ -30,6 +30,8 @@
 .container {
     display: flex;
     height: 100vh;
+    margin-top: 0px;
+    margin-left: 0px;
 }
 
 .left-section {
