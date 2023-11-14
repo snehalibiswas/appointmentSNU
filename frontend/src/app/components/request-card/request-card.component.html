@@ -1,0 +1,14 @@
+<div class="cont-req" *ngFor="let req of Req">
+    <h2>{{req.name}}</h2>
+    <h3>Day: {{req.day}}</h3>
+    <h3>Time: {{req.time}}</h3>
+    <h3>{{req.title}}</h3>
+    <div class="row-req">
+        <button class="button-approve">
+            Approve
+        </button>
+        <button class="button-delete">
+            Delete
+        </button>
+    </div>
+</div>

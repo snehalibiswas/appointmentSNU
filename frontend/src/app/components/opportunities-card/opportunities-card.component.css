@@ -1,0 +1,28 @@
+.cont-opp{
+    margin-bottom: 20px;
+}
+
+.button-apply{
+width: 149px;
+height: 37px;
+border-radius: 5px;
+background: #5387B8;
+color: #FFF;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: -0.34px;
+}
+
+.row-opp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.row-button{
+    display: flex;
+    justify-content: center;
+}

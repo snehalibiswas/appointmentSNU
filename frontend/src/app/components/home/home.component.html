@@ -1,4 +1,18 @@
-<p>home works!</p>
+
 
 <!-- Button for Redirecting to Create Profile -->
 <button (click)="redirectToCreateProfile()">Create Profile</button>
+
+<div class="cont">
+    <div class="col request">
+        <h2>Requested Meetings</h2>
+        <app-request-card></app-request-card>
+    </div>
+    <div class="col meetings">
+        <h2>Upcoming Meetings</h2>
+        <app-meeting-card></app-meeting-card>
+    </div>
+    <div class="col prof">
+    </div>
+
+</div>

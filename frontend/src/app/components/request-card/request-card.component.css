@@ -1,0 +1,41 @@
+.row-req{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.button-approve{
+    width: 149px;
+    height: 37px;
+    border-radius: 5px;
+    background: #5387B8;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.34px;
+    }
+
+    .button-delete{
+        width: 149px;
+        height: 37px;
+        border-radius: 5px;
+        background: #B21414;
+        color: #FFF;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: -0.34px;
+        }
+.cont-req{
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}

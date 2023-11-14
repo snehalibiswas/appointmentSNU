@@ -1,8 +1,8 @@
-.request {
+.saved {
     background-color: #EDEBEB;
     border-right: 1px black solid;
 }
-.request h2{
+.saved h2{
     text-align: center;
     font-weight: 600;
     letter-spacing: 1px;
@@ -10,12 +10,12 @@
 
 }
 
-.meetings {
+.opportunities {
     background-color: #EDEBEB;
     border-left: 1px black solid;
     border-right: 1px black solid;
 }
-.meetings h2 {
+.opportunities h2 {
     text-align: center;
     font-weight: 600;
     letter-spacing: 1px;
@@ -23,11 +23,11 @@
 
 }
 
-.prof {
+.applications {
     background-color: #EDEBEB;
     border-left: 1px black solid;
 }
-.prof h2 {
+.applications h2 {
     text-align: center;
     font-weight: 600;
     letter-spacing: 1px;
@@ -44,4 +44,11 @@
     flex: 0 0 30%;
 	  padding: 10px;
 	  margin: 1px;
+}
+
+.row-main {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
 }

@@ -30,6 +30,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfessorListComponent } from './components/professor-list/professor-list.component';
 import { ProfessorCardComponent } from './components/professor-card/professor-card.component';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
+import { SavedCardComponent } from './components/saved-card/saved-card.component';
+import { ApplicationCardComponent } from './components/application-card/application-card.component';
+import { OpportunitiesCardComponent } from './components/opportunities-card/opportunities-card.component';
+import { PostingPageComponent } from './components/posting-page/posting-page.component';
+import { RequestCardComponent } from './components/request-card/request-card.component';
+import { MeetingCardComponent } from './components/meeting-card/meeting-card.component';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +50,12 @@ import { CreateProfileComponent } from './create-profile/create-profile.componen
     ProfessorListComponent,
     ProfessorCardComponent,
     CreateProfileComponent,
+    SavedCardComponent,
+    ApplicationCardComponent,
+    OpportunitiesCardComponent,
+    PostingPageComponent,
+    RequestCardComponent,
+    MeetingCardComponent,
   ],
   imports: [
     BrowserModule,

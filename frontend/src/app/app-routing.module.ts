@@ -9,6 +9,7 @@ import { DepartmentComponent } from './components/department/department.componen
 import { AuthGuard } from './services/auth-guard.service';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PostingPageComponent } from './components/posting-page/posting-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: 'dept/:id', component: DepartmentComponent },
   { path: 'create-profile', component: CreateProfileComponent },
-  { path: 'profile/:id', component: ProfileComponent }
+  { path: 'profile/:id', component: ProfileComponent },
+  { path: "posting", component: PostingPageComponent }
 
 ];
 
