@@ -1,0 +1,54 @@
+.saved {
+    background-color: #EDEBEB;
+    border-right: 1px black solid;
+}
+.saved h2{
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+
+}
+
+.opportunities {
+    background-color: #EDEBEB;
+    border-left: 1px black solid;
+    border-right: 1px black solid;
+}
+.opportunities h2 {
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+
+}
+
+.applications {
+    background-color: #EDEBEB;
+    border-left: 1px black solid;
+}
+.applications h2 {
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.cont {
+    display: flex;
+    height: calc(100%-106px);
+    justify-content: space-between;
+}
+
+.col {
+    flex: 0 0 30%;
+	  padding: 10px;
+	  margin: 1px;
+}
+
+.row-main {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+}

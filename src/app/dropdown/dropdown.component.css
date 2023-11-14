@@ -1,0 +1,23 @@
+mat-form-field{
+    width: 300px;
+    background-color: #EDEBEB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+}
+
+mat-form-field::before{
+    background-color: #EDEBEB;
+}
+
+mat-label{
+    font-size: 20px;
+}
+
+::ng-deep mat-select-content{
+    background-color: #EDEBEB;
+}
+

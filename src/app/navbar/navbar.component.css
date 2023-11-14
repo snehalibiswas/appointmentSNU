@@ -1,0 +1,70 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .main-nav{
+    background-color: #EDEBEB;
+    height: 106px;
+    max-height: 106px;
+  }
+
+  .main-nav h2{
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .main-nav a{
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+  }
+
+  .main-nav button{
+    background-color: #5387B8;
+    margin-left: 10px;
+  }
+
+.main-nav select {
+        font-family: 'Arial';
+        font-size: 18px;
+        display: inline-block;
+        width: 300px;
+        cursor: pointer;
+        padding: 10px 15px;
+        outline: 0;
+        border: 0px solid #000000;
+        border-radius: 0px;
+        background: #e6e6e6;
+        color: #7b7b7b;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+        .main-nav select::-ms-expand {
+            display: none;
+        }
+        .main-nav select:hover,
+        .main-nav select:focus {
+            color: #000000;
+            background: #cccccc;
+        }
+        .main-nav select:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+.select_arrow {
+    position: relative;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 8px 5px 0px 5px;
+    border-color: #7b7b7b transparent transparent transparent;
+}
+.main-nav select:hover ~ .select_arrow,
+.main-nav select:focus ~ .select_arrow {
+    border-top-color: #000000;
+}
+.main-nav select:disabled ~ .select_arrow {
+    border-top-color: #cccccc;
+}

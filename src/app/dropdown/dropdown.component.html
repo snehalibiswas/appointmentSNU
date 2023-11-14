@@ -1,0 +1,10 @@
+<div>
+<mat-form-field>
+  <mat-label>Department</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let dep of deps" [value]="dep.value">
+      {{dep.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+</div>

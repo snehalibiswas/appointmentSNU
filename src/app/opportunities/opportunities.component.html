@@ -1,0 +1,19 @@
+<div class="cont-opp" *ngFor="let oppo of Opport">
+    <div class="row-opp">
+    <h2>{{oppo.title}}</h2>
+    <button mat-fab>
+        <mat-icon>bookmark</mat-icon>
+    </button>
+    </div>
+    <br/>
+    <h3>Supervisor: {{oppo.supervisor}}</h3>
+    <h3>Job Type: {{oppo.type}}</h3>
+    <h3>Department: {{oppo.dep}}</h3>
+    <h3>No: of Hours: {{oppo.hrs}} hrs per week</h3>
+    <h3>Stipend: {{oppo.stipend}} Rs</h3>
+    <div class="row-button">
+        <button class="button-apply">
+            Apply
+        </button>
+    </div>
+</div>
