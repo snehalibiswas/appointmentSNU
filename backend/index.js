@@ -121,6 +121,20 @@ app.post("/api/meetings/add", (req, res) => {
   });
 });
 
+app.get("/api/users/:useremail", (req, res) => {
+  var useremail = req.params.useremail;
+  console.log("PRINTINH USERNAME", req.params.useremail);
+  var sql = "SELECT * FROM users WHERE email='"+ useremail+ "'";
+  console.log(sql);
+  db.query(sql, function (error, result) {
+    if (error) {
+      console.log("Error Connecting to DB");
+    } else {
+      res.send({ status: true, data: result });
+    }
+  });
+});
+
 
 
 app.use(errorController.get404);

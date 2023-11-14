@@ -15,35 +15,35 @@
         <form class="profile-form">
             <div class="form-field">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="Enter username">
+                <input type="text" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" id="username" placeholder="Enter username">
             </div>
             <div class="form-field">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter email">
+                <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" id="email" name="email" placeholder="Enter email">
             </div>
             <div class="form-field">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Enter password">
+                <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" id="password" name="password" placeholder="Enter password">
             </div>
             <div class="form-field">
                 <label for="role">Role:</label>
-                <input type="text" id="role" name="role" placeholder="Enter role">
+                <input type="text" [(ngModel)]="role" [ngModelOptions]="{standalone: true}" id="role" name="role" placeholder="Enter role">
             </div>
             <div class="form-field">
                 <label for="roomNo">Room No:</label>
-                <input type="text" id="roomNo" name="roomNo" placeholder="Enter room number">
+                <input type="text" [(ngModel)]="roomno" [ngModelOptions]="{standalone: true}" id="roomNo" name="roomNo" placeholder="Enter room number">
             </div>
             <div class="form-field">
                 <label for="research">Research:</label>
-                <textarea id="research" name="research" placeholder="Enter research details"></textarea>
+                <textarea id="research" [(ngModel)]="research" [ngModelOptions]="{standalone: true}" name="research" placeholder="Enter research details"></textarea>
             </div>
             <div class="form-field">
                 <label for="education">Education:</label>
-                <textarea id="education" name="education" placeholder="Enter education details"></textarea>
+                <textarea id="education" [(ngModel)]="education" [ngModelOptions]="{standalone: true}" name="education" placeholder="Enter education details"></textarea>
             </div>
             <div class="form-field">
                 <label for="workExperience">Work Experience:</label>
-                <textarea id="workExperience" name="workExperience" placeholder="Enter work experience details"></textarea>
+                <textarea [(ngModel)]="workexperience" [ngModelOptions]="{standalone: true}" id="workExperience" name="workExperience" placeholder="Enter work experience details"></textarea>
             </div>
             <button type="submit">Submit</button>
         </form>

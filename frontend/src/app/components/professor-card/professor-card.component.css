@@ -1,0 +1,25 @@
+.prof-name{
+    text-transform: capitalize; 
+    font-weight: 500;
+    text-decoration: none;
+    font-size: medium;
+}
+
+.capatalize{
+    text-transform: capitalize; 
+}
+
+a:link {
+    color: black;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: black;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: blue;
+  }
+  
