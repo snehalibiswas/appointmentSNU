@@ -1,13 +1,5 @@
 <div class="cont-appli" *ngFor="let app of Appli">
-    <h2>{{app.title}}</h2>
-    <h3>{{app.name}}</h3>
-    <h3>{{app.major}} {{app.type}}</h3>
-    <div class="row-appli">
-        <button class="button-apply">
-            Apply
-        </button>
-        <button class="button-delete">
-            Delete
-        </button>
-    </div>
+    <h2 class="title">Title: {{app.title}}</h2>
+    <h3>Name: {{app.name}}</h3>
+    <h3>Department: {{app.major}} {{app.type}}</h3>
 </div>

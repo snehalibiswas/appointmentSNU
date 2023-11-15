@@ -1,13 +1,15 @@
-<div class="cont-req" *ngFor="let req of Req">
-    <h2>{{req.name}}</h2>
-    <h3>Day: {{req.day}}</h3>
-    <h3>Time: {{req.time}}</h3>
-    <h3>{{req.title}}</h3>
+<!-- {{requests | json}} -->
+
+<div class="cont-req" *ngFor="let req of requests">
+    <h2>By: {{req.scheduled_by}}</h2>
+    <h3>Start Time: {{req.starttime |date:'medium'}}</h3>
+    <h3>End Time: {{req.endtime | date:'medium'}}</h3>
+    <h3>Title: {{req.title}}</h3>
     <div class="row-req">
-        <button class="button-approve">
+        <button class="button-approve" (click)="approved(req.mid)">
             Approve
         </button>
-        <button class="button-delete">
+        <button class="button-delete " (click)="delete(req.mid)">
             Delete
         </button>
     </div>

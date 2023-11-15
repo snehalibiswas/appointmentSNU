@@ -1,7 +1,6 @@
 
 
 <!-- Button for Redirecting to Create Profile -->
-<button (click)="redirectToCreateProfile()">Create Profile</button>
 
 <div class="cont">
     <div class="col request">
@@ -12,7 +11,14 @@
         <h2>Upcoming Meetings</h2>
         <app-meeting-card></app-meeting-card>
     </div>
-    <div class="col prof">
+    <div >
+        <h2>Hii {{currentUser}}</h2>
+        <!-- <div class="professor-card" >
+            <img src="../../../assets/my-image.png" alt="Professor Image" class="prof-image">
+            <h3></h3>
+            <p class="capatalize">Student</p>
+          </div> -->
+        <button class="profile-button" (click)="redirectToCreateProfile()"><i class="fa-solid fa-pen-to-square edit"></i></button>
     </div>
 
 </div>

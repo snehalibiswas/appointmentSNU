@@ -26,16 +26,17 @@ import { DropDownListModule, ComboBoxModule, AutoCompleteModule, MultiSelectModu
 import { FormsModule }   from '@angular/forms';
 import { AuthInterceptorService } from "./services/auth-interceptor.service";
 import { DepartmentComponent } from './components/department/department.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { ProfessorListComponent } from './components/professor-list/professor-list.component';
 import { ProfessorCardComponent } from './components/professor-card/professor-card.component';
-import { CreateProfileComponent } from './create-profile/create-profile.component';
+import { CreateProfileComponent } from './components/create-profile/create-profile.component';
 import { SavedCardComponent } from './components/saved-card/saved-card.component';
 import { ApplicationCardComponent } from './components/application-card/application-card.component';
 import { OpportunitiesCardComponent } from './components/opportunities-card/opportunities-card.component';
 import { PostingPageComponent } from './components/posting-page/posting-page.component';
 import { RequestCardComponent } from './components/request-card/request-card.component';
 import { MeetingCardComponent } from './components/meeting-card/meeting-card.component';
+import { AppliedCardComponent } from './components/applied-card/applied-card.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { MeetingCardComponent } from './components/meeting-card/meeting-card.com
     PostingPageComponent,
     RequestCardComponent,
     MeetingCardComponent,
+    AppliedCardComponent,
   ],
   imports: [
     BrowserModule,

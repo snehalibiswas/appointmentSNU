@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Router, NavigationExtras } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -42,7 +42,8 @@ export class ProfileComponent {
       starttime: new Date(startTime),
       endtime: new Date(endTime),
       scheduled_by: this.currentUser,
-      scheduled_with: this.user[0].email
+      scheduled_with: this.user[0].email,
+      venue: this.user[0].room_no
 
     };
     this.http.post("http://localhost:3000/api/meetings/add", event).subscribe((resultData: any) => {   //this.http -> server : sevrer.post -> server.js fill

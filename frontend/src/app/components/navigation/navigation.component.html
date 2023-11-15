@@ -2,14 +2,20 @@
   <span>
     <span><i class="fa-brands fa-squarespace"></i></span>
   </span>
+  <span *ngIf="isAuthenticated">
+    <h3></h3>
+  </span>
+  <span *ngIf="isAuthenticated">
+    <h3></h3>
+  </span>
 
 
-  <form *ngIf="isAuthenticated" role="search" id="form">
+  <!-- <form *ngIf="isAuthenticated" role="search" id="form">
     <input type="search" id="query" name="q" placeholder="Search..." aria-label="Search through site content">
     <button>
       <i class="fa-solid fa-magnifying-glass"></i>
     </button>
-  </form>
+  </form> -->
 
   <div *ngIf="isAuthenticated" class="dropdown">
     <button class="dropbtn">Department</button>

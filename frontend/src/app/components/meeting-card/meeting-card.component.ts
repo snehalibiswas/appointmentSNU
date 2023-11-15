@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 interface Meeting {
   name: string;
@@ -13,8 +14,23 @@ interface Meeting {
   styleUrls: ['./meeting-card.component.css']
 })
 export class MeetingCardComponent {
-  Meet: Meeting[] = [
-    {name: "Snehasis Mukherjee", time: "3:30pm-3:40pm", status: "Pending", room: "C309"},
-    {name: "Pooja Mallik", time: "3:30pm-3:40pm", status: "Approved", room: "C219J"}
-  ];
+  public meetings: any=[];
+  currentUser: any;
+
+  constructor( private http: HttpClient) {
+    this.currentUser = localStorage.getItem('useremail');
+    console.log(this.currentUser);
+    this.get_meeting_scheduled();
+  }
+
+  get_meeting_scheduled(){
+    console.log("BBB");
+    this.http.get("http://localhost:3000/api/users/meetings/"+this.currentUser.toString())
+      .subscribe((resultData: any) => {
+        console.log(resultData.data);
+        this.meetings=resultData.data;
+      });
+      // this.get_meeting_scheduled();
+      
+  }
 }

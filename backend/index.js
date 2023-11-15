@@ -13,7 +13,7 @@ const db = mysql.createConnection({
 
   host: "localhost",
   user: "root",
-  password: "Telepath10",
+  password: "Saumya#237",
   database: "dbmsproject",
 
 });
@@ -95,12 +95,13 @@ app.post("/api/meetings/add", (req, res) => {
     starttime: req.body.starttime,
     endtime: req.body.endtime,
     scheduled_by: req.body.scheduled_by,
-    scheduled_with: req.body.scheduled_with
+    scheduled_with: req.body.scheduled_with,
+    venue: req.body.venue
   };
 
   console.log(details);
 
-  let sql = "INSERT INTO meetings (title, starttime, endtime, scheduled_by, scheduled_with) VALUES (?, STR_TO_DATE(?, '%Y-%m-%dT%H:%i:%s.000Z'), STR_TO_DATE(?, '%Y-%m-%dT%H:%i:%s.000Z'), ?, ?)";
+  let sql = "INSERT INTO meetings (title, starttime, endtime, scheduled_by, scheduled_with, venue) VALUES (?, STR_TO_DATE(?, '%Y-%m-%dT%H:%i:%s.000Z'), STR_TO_DATE(?, '%Y-%m-%dT%H:%i:%s.000Z'), ?, ?, ?)";
 
   // Extract values from the details object and create an array
   let values = [
@@ -108,7 +109,8 @@ app.post("/api/meetings/add", (req, res) => {
     details.starttime,
     details.endtime,
     details.scheduled_by,
-    details.scheduled_with
+    details.scheduled_with,
+    details.venue
   ];
 
   db.query(sql, values, (error) => {
@@ -121,7 +123,7 @@ app.post("/api/meetings/add", (req, res) => {
   });
 });
 
-app.get("/api/users/:useremail", (req, res) => {
+app.get("/api/users/getDetails/:useremail", (req, res) => {
   var useremail = req.params.useremail;
   console.log("PRINTINH USERNAME", req.params.useremail);
   var sql = "SELECT * FROM users WHERE email='" + useremail + "'";
@@ -165,6 +167,70 @@ app.put("/api/users/update/:useremail", (req, res) => {
       // Handle the success (send a success response, redirect, etc.)
     }
 
+  });
+});
+
+app.get("/api/users/requests/:useremail", (req, res) => {
+  var useremail = req.params.useremail;
+  console.log("ABCDE", req.params.useremail);
+  var sql = "SELECT * FROM meetings WHERE approved=0 and scheduled_with='" + useremail + "'";
+  console.log(sql);
+  db.query(sql, function (error, result) {
+    if (error) {
+      console.log("Error Connecting to DB");
+    } else {
+      res.send({ status: true, data: result });
+    }
+  });
+});
+
+app.get("/api/users/meetings/:useremail", (req, res) => {
+  var useremail = req.params.useremail;
+  console.log("ABCDE", req.params.useremail);
+  var sql = "SELECT * FROM meetings WHERE scheduled_by='" + useremail + "' or scheduled_with='"+ useremail+"'" ;
+  console.log(sql);
+  db.query(sql, function (error, result) {
+    if (error) {
+      console.log("Error Connecting to DB");
+    } else {
+      res.send({ status: true, data: result });
+    }
+  });
+});
+
+app.put("/api/meetings/update/approve/:id", (req, res) => {
+  console.log("Begin approve");
+  const sql = `
+  UPDATE meetings
+  SET approved = ?
+  WHERE mid = ?;
+`;
+
+  const values = [
+    req.body.approve,
+    req.body.meeting_id
+  ];
+
+  db.query(sql, values, (error, results, fields) => {
+    if (error) {
+      console.error('Error approving meeting:', error);
+      // Handle the error appropriately (send an error response, log, etc.)
+    } else {
+      console.log('Meeting approved successfully');
+      // Handle the success (send a success response, redirect, etc.)
+    }
+
+  });
+});
+
+app.delete("/api/meetings/delete/:id", (req, res) => {
+  let sql = "DELETE FROM meetings WHERE mid=" + req.params.id + "";
+  let query = db.query(sql, (error) => {
+    if (error) {
+      res.send({ status: false, message: "Meeting Deleted Failed" });
+    } else {
+      res.send({ status: true, message: "Meeting Deleted successfully" });
+    }
   });
 });
 
