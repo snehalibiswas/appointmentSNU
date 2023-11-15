@@ -1,4 +1,36 @@
-<div class="cont">
+<form *ngIf="form==1" class="profile-form">
+    <h2>Add Post details</h2>
+    <div class="form-field">
+        <label for="username">Title:</label>
+        <input type="text" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" id="username" placeholder="Enter username">
+    </div>
+    <div class="form-field">
+        <label for="email">Supervisor:</label>
+        <input type="email" [(ngModel)]="supervisor" [ngModelOptions]="{standalone: true}" id="email" name="email" placeholder="Enter email">
+    </div>
+    <div class="form-field">
+        <label for="password">JobType:</label>
+        <input type="password" [(ngModel)]="jobtype" [ngModelOptions]="{standalone: true}" id="password" name="password" placeholder="Enter password">
+    </div>
+    <div class="form-field">
+        <label for="password">Department:</label>
+        <input type="password" [(ngModel)]="department" [ngModelOptions]="{standalone: true}" id="password" name="password" placeholder="Enter password">
+    </div>
+    <div class="form-field">
+        <label for="password">Hours/week:</label>
+        <input type="password" [(ngModel)]="hours" [ngModelOptions]="{standalone: true}" id="password" name="password" placeholder="Enter password">
+    </div>
+    <div class="form-field">
+        <label for="password">Stipend:</label>
+        <input type="password" [(ngModel)]="stipend" [ngModelOptions]="{standalone: true}" id="password" name="password" placeholder="Enter password">
+    </div>
+    <button class="submit-button" type="submit" (click)="onSubmit()">Submit</button>
+</form>
+
+
+<button *ngIf="form==0" class="add-post" (click)="addPost()"> Add New Post</button>
+
+<div *ngIf="form==0" class="cont">
     <div class="col saved">
         <h2>Saved</h2>
         <app-saved-card></app-saved-card>
@@ -9,10 +41,16 @@
     </div>
     <div class="col applications">
         <div class="row-main">
-        <h2>Applications</h2>
-        <h2>Apply</h2>
+        <button class="app" (click)="applications()">Applications</button>
+        <button class="app" (click)="applied()"> Applied</button>
         </div>
-        <app-application-card></app-application-card>
+        <div *ngIf="apply==0">
+            <app-application-card></app-application-card>
+        </div>
+        <div *ngIf="apply==1">
+            <app-applied-card></app-applied-card>
+        </div>
+       
     </div>
 
 </div>

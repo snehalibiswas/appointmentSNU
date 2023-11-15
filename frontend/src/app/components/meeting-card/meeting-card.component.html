@@ -1,10 +1,25 @@
-<div class="cont-meet" *ngFor="let meet of Meet">
-    <div class="row-meet">
-    <h2>{{meet.name}}</h2>
-    <h3>{{meet.time}}</h3>
-    </div>  
-    <div class="row-meet">
-        <h3>{{meet.status}}</h3>
-        <h3>{{meet.room}}</h3>
-    </div> 
+<div class="cont-meet" *ngFor="let meet of meetings">
+  <div class="row-meet">
+    <h2>{{meet.title}}</h2>
+  </div>
+  <div class="row-meet">
+    <h3>Scheduled By: {{meet.scheduled_by}}</h3>
+  </div>
+  <div class="row-meet">
+    <h3>Scheduled With: {{meet.scheduled_with}}</h3>
+  </div>
+  <div class="row-meet">
+    <h3>Start time: {{meet.starttime | date:'medium'}}</h3>
+  </div>
+  <div class="row-meet">
+    <h3>End time: {{meet.endtime | date:'medium'}}</h3>
+  </div>
+  <div *ngIf="meet.approved === 0" class="row-meet">
+    <h3 class="pending">Status: Pending</h3>
+    <h3>{{meet.venue}}</h3>
+  </div>
+  <div *ngIf="meet.approved !== 0" class="row-meet">
+    <h3 class="approved">Status: Approved</h3>
+    <h3>Venue: {{meet.venue}}</h3>
+  </div>
 </div>

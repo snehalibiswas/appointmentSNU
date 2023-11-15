@@ -6,7 +6,16 @@
 }
 
 .cont-meet{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 8px;
     margin-bottom: 20px;
+    background-color: rgb(237, 237, 237)
+}
+
+.pending{
+    color: red;
+}
+
+.approved{
+    color: green;
 }

@@ -33,7 +33,7 @@ export class CreateProfileComponent {
   }
 
   getDetails() {
-    this.http.get("http://localhost:3000/api/users/"+this.currentUser.toString())
+    this.http.get("http://localhost:3000/api/users/getDetails/"+this.currentUser.toString())
       .subscribe((resultData: any) => {
         this.isResultLoaded = true;
         console.log(resultData);

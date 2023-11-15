@@ -14,9 +14,12 @@ export class NavigationComponent {
   public data: any[] = [];
   public deptname!: "";
   public new_route : string = ""
+  public requests: any=[];
+  currentUserEmail: any='';
 
   constructor(private authService: AuthService, private router: Router, private http: HttpClient, private route: ActivatedRoute) {
     this.getdepartment();
+    this.currentUserEmail = localStorage.getItem('useremail');
   }
 
   ngOnInit(): void {

@@ -13,4 +13,5 @@ import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
     DropDownListModule
   ]
 })
-export class NavigationModule { }
+export class NavigationModule { 
+}

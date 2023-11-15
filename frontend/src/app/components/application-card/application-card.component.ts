@@ -17,4 +17,5 @@ export class ApplicationCardComponent {
     {title: "Web Designer", name: "Snehali Biswas", major: "CSE", type: "student"},
     {title: "UI/UX Designer", name: "Richard Joe", major: "CSE", type: "student"}
   ]
+  
 }

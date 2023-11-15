@@ -7,8 +7,8 @@ import { LoginComponent } from "./components/login/login.component";
 import { SignupComponent } from "./components/signup/signup.component";
 import { DepartmentComponent } from './components/department/department.component';
 import { AuthGuard } from './services/auth-guard.service';
-import { CreateProfileComponent } from './create-profile/create-profile.component';
-import { ProfileComponent } from './profile/profile.component';
+import { CreateProfileComponent } from './components/create-profile/create-profile.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { PostingPageComponent } from './components/posting-page/posting-page.component';
 
 const routes: Routes = [
