@@ -102,9 +102,12 @@
 }
 
 .profile-form {
+    /* background-color: #ccc; */
     display: flex;
     flex-direction: column;
     width: 700px;
+    margin-left: 25%;
+    padding-top: 5%;
 }
 
 .form-field {
@@ -138,7 +141,7 @@ textarea {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #5387B8;
     color: white;
 }
 
