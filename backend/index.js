@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
 // const postsRoutes = require('./routes/posts');
 const errorController = require('./controllers/error');
+const cors = require('cors');
 
 const app = express();
 
@@ -13,11 +14,10 @@ const db = mysql.createConnection({
 
   host: "localhost",
   user: "root",
-  password: "Saumya#237",
+  password: "Telepath10",
   database: "dbmsproject",
 
 });
-
 
 app.use(bodyParser.json());
 
@@ -36,6 +36,8 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+
 
 app.use('/auth', authRoutes);
 
@@ -233,6 +235,94 @@ app.delete("/api/meetings/delete/:id", (req, res) => {
     }
   });
 });
+
+
+app.put('/api/posts/form', (req, res) => {
+
+    // Values to be inserted into the query
+    const values = [
+      req.body.user,
+      req.body.title, 
+      req.body.supervisor, 
+      req.body.job_type,
+      req.body.department,
+      req.body.hrs,
+      req.body.stipend,
+      ];
+
+  console.log("Begin update");
+  let sql = `
+  INSERT INTO Posts (user, title, supervisor, job_type, department, hrs, stipend) VALUES (?, ?, ?, ?, ?, ?, ?)
+`;
+
+  // Execute the query
+  db.query(sql, values, (error, results, fields) => {
+    if (error) {
+      console.error('Error creating a new post in backend', error);
+      res.status(500).json({ error: 'Failed to create a post' });
+      return;
+    }
+    console.log('New post created successfully! in backend');
+    res.status(200).json({ message: 'Post created successfully' });
+  });
+});
+
+app.get('/api/opportunities/fetch', (req, res) => {
+  // SQL query to retrieve all opportunities from the Opportunities table
+  let sql = `SELECT * FROM posts`;
+
+  // Execute the query
+  db.query(sql, (error, results, fields) => {
+    if (error) {
+      console.error('Error fetching opportunities:', error);
+      res.status(500).json({ error: 'Failed to fetch opportunities' });
+      return;
+    }
+    console.log('Opportunities fetched successfully!');
+    res.status(200).json(results); // Send the opportunities as a JSON response
+  });
+});
+
+app.post("/api/saves/add", (req, res) => {
+  let details = {
+    post_id: req.body.post_id,
+    user: req.body.user
+  };
+
+  console.log(details);
+
+  let sql = "INSERT INTO saves (post_id, user) VALUES (?, ?)";
+
+  // // Extract values from the details object and create an array
+  let values = [
+    details.post_id,
+    details.user
+  ];
+
+  db.query(sql, values, (error) => {
+    console.log(error);
+    if (error) {
+      res.send({ status: false, message: "Post Saved creation failed" });
+    } else {
+      res.send({ status: true, message: "Post Saved successfully" });
+    }
+  });
+});
+
+app.get("/api/saves/fetch/:useremail", (req, res) => {
+  var useremail = req.params.useremail;
+  console.log("Saving USERNAME", req.params.useremail);
+  var sql = "SELECT p.title, p.supervisor, p.created_at, s.user FROM saves s JOIN posts p on s.post_id=p.post_id WHERE s.user='" + useremail + "'";
+  console.log(sql);
+  db.query(sql, function (error, result) {
+    if (error) {
+      console.log("Error Connecting to DB");
+    } else {
+      res.send({ status: true, data: result });
+    }
+  });
+});
+
 
 
 

@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-interface Save {
-  title: string;
-  supervisor: string;
-  date: string;
-}
 
 @Component({
   selector: 'app-saved-card',
@@ -12,8 +8,32 @@ interface Save {
   styleUrls: ['./saved-card.component.css']
 })
 export class SavedCardComponent {
-  Saver: Save[] = [
-    {title: "Research Assistant", supervisor: "Balamurugan", date: "20-10-23"},
-    {title: "Research Supervisor", supervisor: "Anshu Paliwal", date: "20-11-23"}
-  ];
+  Saver: any[] = [];
+  public currentUser: any;
+
+  constructor(private http: HttpClient) {
+    this.currentUser = localStorage.getItem('useremail');
+    this.fetchSaved();
+  }
+
+  ngOnInit(): void {
+  }
+
+
+  fetchSaved() {
+    this.http.get("http://localhost:3000/api/saves/fetch/"+this.currentUser.toString())
+      .subscribe((resultData: any) => {
+        this.Saver=resultData.data
+        console.log(resultData.data);
+    
+      });
+      console.log(this.Saver)
+  }
+
+  makeAPICallInterval(): void {
+    // Set an interval for API call (e.g., every 5 seconds)
+    // setInterval(() => {
+    //   this.fetchSaved();
+    // }, 50000); // Interval in milliseconds (e.g., 5000 ms = 5 seconds)
+  }
 }
