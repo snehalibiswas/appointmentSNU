@@ -21,6 +21,7 @@ export class MeetingCardComponent {
     this.currentUser = localStorage.getItem('useremail');
     console.log(this.currentUser);
     this.get_meeting_scheduled();
+    this.makeAPICallInterval();
   }
 
   get_meeting_scheduled(){
@@ -32,5 +33,12 @@ export class MeetingCardComponent {
       });
       // this.get_meeting_scheduled();
       
+  }
+
+  makeAPICallInterval(): void {
+    // Set an interval for API call (e.g., every 5 seconds)
+    setInterval(() => {
+      this.get_meeting_scheduled();
+    }, 5000); // Interval in milliseconds (e.g., 5000 ms = 5 seconds)
   }
 }
