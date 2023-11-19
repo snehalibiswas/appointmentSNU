@@ -21,6 +21,7 @@ export class RequestCardComponent {
     this.currentUser = localStorage.getItem('useremail');
     console.log(this.currentUser);
     this.get_meeting_requests();
+    this.makeAPICallInterval();
   }
 
   get_meeting_requests(){
@@ -32,6 +33,13 @@ export class RequestCardComponent {
         this.requests=resultData.data;
       });
       
+  }
+
+  makeAPICallInterval(): void {
+    // Set an interval for API call (e.g., every 5 seconds)
+    setInterval(() => {
+      this.get_meeting_requests();
+    }, 5000); // Interval in milliseconds (e.g., 5000 ms = 5 seconds)
   }
 
   approved(meeting_id: any){

@@ -13,6 +13,7 @@ export class AppliedCardComponent {
   constructor(private http: HttpClient) {
     this.currentUser = localStorage.getItem('useremail');
     this.makeAPICallInterval();
+    this.fetchApplied();
   }
 
   ngOnInit(): void {
