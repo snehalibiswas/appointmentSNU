@@ -1,5 +1,13 @@
 <div class="cont-appli" *ngFor="let app of Appli">
-    <h2 class="title">Title: {{app.title}}</h2>
-    <h3>Name: {{app.name}}</h3>
-    <h3>Department: {{app.major}} {{app.type}}</h3>
+    <h2 class="title">{{app.title}}</h2>
+    <h3>Email: {{app.user}}</h3>
+    <h3>Department: {{app.department}} {{app.job_type}}</h3>
+    <div class="row-apply">
+        <button class="button-approve" (click)="approveAppli(app.post_id)">
+            Approve
+        </button>
+        <button class="button-reject" (click)="rejectAppli(app.post_id)">
+            Reject
+        </button>
+    </div>
 </div>

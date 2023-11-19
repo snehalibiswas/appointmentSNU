@@ -1,12 +1,13 @@
+
 <div class="cont-save" *ngFor="let save of Saver">
     <h2>{{save.title}}</h2>
     <h3>Supervisor: {{save.supervisor}}</h3>
-    <h3>Deadline: {{save.date}}</h3>
+    <h3>Deadline: {{save.deadline}}</h3>
     <div class="row-save">
-        <button class="button-apply">
+        <button class="button-apply" (click)="applySave(save.post_id)">
             Apply
         </button>
-        <button class="button-delete">
+        <button class="button-delete" (click)="deleteSave(save.post_id)">
             Delete
         </button>
     </div>

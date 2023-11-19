@@ -17,6 +17,7 @@
     font-weight: 600;
     line-height: normal;
     letter-spacing: -0.34px;
+    cursor: pointer;
     }
 
     .button-delete{
@@ -31,4 +32,5 @@
         font-weight: 600;
         line-height: normal;
         letter-spacing: -0.34px;
+        cursor: pointer;
         }

@@ -4,25 +4,25 @@
         <label for="username">Title:</label>
         <input type="text" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" id="username" placeholder="Enter username">
     </div>
-    <div class="form-field">
+    <!-- <div class="form-field">
         <label for="email">Supervisor:</label>
         <input type="email" [(ngModel)]="supervisor" [ngModelOptions]="{standalone: true}" id="email" name="email" placeholder="Enter email">
+    </div> -->
+    <div class="form-field">
+        <label>JobType:</label>
+        <input type="text" [(ngModel)]="jobtype" [ngModelOptions]="{standalone: true}" placeholder="Enter Job type">
     </div>
     <div class="form-field">
-        <label for="password">JobType:</label>
-        <input type="password" [(ngModel)]="jobtype" [ngModelOptions]="{standalone: true}" id="password" name="password" placeholder="Enter password">
+        <label>Department:</label>
+        <input type="text" [(ngModel)]="department" [ngModelOptions]="{standalone: true}" placeholder="Enter department">
     </div>
     <div class="form-field">
-        <label for="password">Department:</label>
-        <input type="password" [(ngModel)]="department" [ngModelOptions]="{standalone: true}" id="password" name="password" placeholder="Enter password">
+        <label>Hours/week:</label>
+        <input type="text" [(ngModel)]="hours" [ngModelOptions]="{standalone: true}" placeholder="Enter hours/week">
     </div>
     <div class="form-field">
-        <label for="password">Hours/week:</label>
-        <input type="password" [(ngModel)]="hours" [ngModelOptions]="{standalone: true}" id="password" name="password" placeholder="Enter password">
-    </div>
-    <div class="form-field">
-        <label for="password">Stipend:</label>
-        <input type="password" [(ngModel)]="stipend" [ngModelOptions]="{standalone: true}" id="password" name="password" placeholder="Enter password">
+        <label>Stipend:</label>
+        <input type="text" [(ngModel)]="stipend" [ngModelOptions]="{standalone: true}" placeholder="Enter stipend">
     </div>
     <button class="submit-button" type="submit" (click)="onSubmit()">Submit</button>
 </form>
