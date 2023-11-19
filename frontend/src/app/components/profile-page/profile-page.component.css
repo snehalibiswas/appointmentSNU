@@ -5,9 +5,18 @@
 }
 
 .section1 {
-height: 100%;
-padding-left: 2rem;
-width: 70%;
+  height: 100%;
+  padding-left: 2rem;
+  width: 70%;
+  border-right: 2px solid grey;
+}
+
+.vertical-line {
+  border-left: 2px solid grey; 
+  height: 100%; 
+  position: absolute; 
+  left: 69.9%;
+  display: flex;
 }
 
 .section2 {
@@ -15,9 +24,9 @@ width: 70%;
   justify-content: center;
   align-items: center;
   height: 100%;
-margin-left: 70%;
-width: 30%;
-padding: 5rem;
+  margin-left: 70%;
+  width: 30%;
+  padding: 5rem;
 }
 
 body {
