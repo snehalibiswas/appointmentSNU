@@ -1,6 +1,8 @@
+<!-- {{opportunities | json}} -->
 <div class="cont-opp" *ngFor="let oppo of opportunities">
     <div class="row-opp">
     <h2>{{oppo.title}}</h2>
+    <!-- <h2>{{oppo.post_id}}</h2> -->
     <div *ngIf="oppo.user!=currentUser">
     <button mat-fab  (click)="savePost(oppo.post_id)">
         <mat-icon>bookmark</mat-icon>
@@ -14,6 +16,7 @@
     <h3>No: of Hours: {{oppo.hrs}} hrs per week</h3>
     <h3>Stipend: {{oppo.stipend}} Rs</h3>
     <h3>Published on: {{oppo.created_at}}</h3>
+    <!-- <h3>Posted by: {{oppo.user}}</h3> -->
     <div *ngIf="oppo.user!=currentUser" class="row-button">
         <button class="button-apply" (click)="applyPost(oppo.post_id)">
             Apply

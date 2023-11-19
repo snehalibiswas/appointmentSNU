@@ -1,18 +1,82 @@
-<p>profile works!</p>
-{{user | json}}
+<!-- <p>profile works!</p>
+{{user | json}} -->
 
-<div>
-    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
-      <label for="subject">Subject:</label>
-      <input type="text" id="subject" name="subject" ngModel>
-     
-      <label for="startTime">Start Time:</label>
-      <input type="datetime-local" id="startTime" name="startTime" ngModel>
-     
-      <label for="endTime">End Time:</label>
-      <input type="datetime-local" id="endTime" name="endTime" ngModel>
-     
-      <button type="submit">Submit</button>
-     </form>
+<!-- prof-page.component.html -->
+
+<div class="prof-page-container">
+  <div class="left-side">
+    <h2 class="capatalize">{{ user[0].name }}</h2>
+    <!-- <p>Branch: {{ user[0].deptID }}</p> -->
+    <p>Cabin: {{ user[0].room_no }}</p>
+    <p>Email: {{ user[0].email }}</p>
+
+    <div *ngIf="user[0].email!=currentUser">
+      <span>
+        <div>
+          <h1>Schedule meeting</h1>
+        </div>
+      </span>
   
+      <div>
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+          <label for="subject">Subject:</label>
+          <input type="text" id="subject" name="subject" ngModel>
+         
+          <label for="startTime">Start Time:</label>
+          <input type="datetime-local" id="startTime" name="startTime" ngModel>
+         
+          <label for="endTime">End Time:</label>
+          <input type="datetime-local" id="endTime" name="endTime" ngModel>
+         
+          <button type="submit">Submit</button>
+         </form>
+      
+      </div>
+    </div>
+
   </div>
+
+  <div class="right-side">
+    <div class="dropdown">
+      <label>Research Interest:</label>
+      <div *ngIf="user[0].research==null">
+        not updated
+    </div>
+    <div *ngIf="user[0].research!=null">
+      <p>{{ user[0].research }}</p>
+    </div>
+    </div>
+
+    <div class="dropdown">
+      <label>Education:</label>
+      <div *ngIf="user[0].education==null">
+        not updated
+    </div>
+    <div *ngIf="user[0].education!=null">
+      <p>{{ user[0].education }}</p>
+    </div>
+    </div>
+
+    <div class="dropdown">
+      <label>Work Experience:</label>
+      <div *ngIf="user[0].work==null">
+          not updated
+      </div>
+      <div *ngIf="user[0].work!=null">
+        <p>{{ user[0].work }}</p>
+      </div>
+     
+    </div>
+
+    <div class="dropdown">
+      <label>Awards:</label>
+      <div *ngIf="user[0].awards==null">
+        not updated
+    </div>
+    <div *ngIf="user[0].awards!=null">
+      <p>{{ user[0].awards }}</p>
+    </div>
+    </div>
+  </div>
+</div>
+

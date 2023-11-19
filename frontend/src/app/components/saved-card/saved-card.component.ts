@@ -13,7 +13,8 @@ export class SavedCardComponent {
 
   constructor(private http: HttpClient) {
     this.currentUser = localStorage.getItem('useremail');
-    this.makeAPICallInterval();
+    // this.makeAPICallInterval();
+    this.fetchSaved();
   }
 
   ngOnInit(): void {

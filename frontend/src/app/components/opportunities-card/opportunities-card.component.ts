@@ -35,6 +35,7 @@ export class OpportunitiesCardComponent {
   }
 
   savePost(opportunityID: number){
+    console.log(opportunityID);
     const event: Object = {
       post_id: opportunityID,
       user: this.currentUser
