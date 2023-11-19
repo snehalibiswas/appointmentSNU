@@ -1,1 +1,6 @@
-<p>applied-card works!</p>
+<div class="cont-appli" *ngFor="let app of Apply">
+    <h2 class="title">{{app.title}}</h2>
+    <h3>supervisor: {{app.supervisor}}</h3>
+    <h3>type: {{app.job_type}}</h3>
+    <h3 class="status">{{app.status}}</h3>
+</div>

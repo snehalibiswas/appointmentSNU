@@ -45,4 +45,16 @@ export class OpportunitiesCardComponent {
     alert("Meeting Registered Successfully")
 
   }
+
+  applyPost(opportunityID: number){
+    const event: Object = {
+      post_id: opportunityID,
+      user: this.currentUser
+    };
+    this.http.post("http://localhost:3000/api/apply/add", event).subscribe((resultData: any) => {   //this.http -> server : sevrer.post -> server.js fill
+      console.log(resultData);
+    });
+    alert("Meeting Registered Successfully")
+  }
+  
 }

@@ -269,7 +269,7 @@ app.put('/api/posts/form', (req, res) => {
 
 app.get('/api/opportunities/fetch', (req, res) => {
   // SQL query to retrieve all opportunities from the Opportunities table
-  let sql = `SELECT * FROM posts`;
+  let sql = `SELECT title, supervisor, job_type, department, hrs, stipend, DATE_FORMAT(created_at, '%Y-%m-%d') AS created_at  FROM posts`;
 
   // Execute the query
   db.query(sql, (error, results, fields) => {
@@ -312,13 +312,146 @@ app.post("/api/saves/add", (req, res) => {
 app.get("/api/saves/fetch/:useremail", (req, res) => {
   var useremail = req.params.useremail;
   console.log("Saving USERNAME", req.params.useremail);
-  var sql = "SELECT p.title, p.supervisor, p.created_at, s.user FROM saves s JOIN posts p on s.post_id=p.post_id WHERE s.user='" + useremail + "'";
+  var sql = "SELECT p.post_id, p.title, p.supervisor, DATE_FORMAT(DATE_ADD(p.created_at, INTERVAL 10 DAY), '%Y-%m-%d') AS deadline, s.user FROM saves s JOIN posts p on s.post_id=p.post_id WHERE s.user='" + useremail + "'";
   console.log(sql);
   db.query(sql, function (error, result) {
     if (error) {
       console.log("Error Connecting to DB");
     } else {
       res.send({ status: true, data: result });
+    }
+  });
+});
+
+app.post("/api/apply/add", (req, res) => {
+  let details = {
+    post_id: req.body.post_id,
+    user: req.body.user
+  };
+
+  console.log(details);
+
+  let sql = "INSERT INTO apply (post_id, user) VALUES (?, ?)";
+
+  // // Extract values from the details object and create an array
+  let values = [
+    details.post_id,
+    details.user
+  ];
+
+  db.query(sql, values, (error) => {
+    console.log(error);
+    if (error) {
+      res.send({ status: false, message: "Post Saved creation failed" });
+    } else {
+      res.send({ status: true, message: "Post Saved successfully" });
+    }
+  });
+});
+
+app.post("/api/saves/delete", (req, res) => {
+  let details = {
+    post_id: req.body.post_id,
+    user: req.body.user
+  };
+
+  console.log(details);
+
+  let sql = "DELETE FROM saves WHERE post_id = ? AND user = ?";
+
+  // // Extract values from the details object and create an array
+  let values = [
+    details.post_id,
+    details.user
+  ];
+
+  db.query(sql, values, (error) => {
+    console.log(error);
+    if (error) {
+      res.send({ status: false, message: "Post Saved creation failed" });
+    } else {
+      res.send({ status: true, message: "Post Saved successfully" });
+    }
+  });
+});
+
+app.get("/api/apply/fetch/:useremail", (req, res) => {
+  var useremail = req.params.useremail;
+  console.log("Fetching Applied", req.params.useremail);
+  var sql = "SELECT p.title, p.supervisor, p.job_type, a.status, a.user FROM apply a JOIN posts p on a.post_id=p.post_id WHERE a.user='" + useremail + "'";
+  console.log(sql);
+  db.query(sql, function (error, result) {
+    if (error) {
+      console.log("Error Connecting to DB");
+    } else {
+      res.send({ status: true, data: result });
+    }
+  });
+});
+
+app.get("/api/application/fetch/:useremail", (req, res) => {
+  var useremail = req.params.useremail;
+  console.log("Fetching Applications  ", req.params.useremail);
+  var sql = "SELECT p.post_id, p.title, a.user, p.department, p.job_type FROM apply a JOIN posts p on a.post_id=p.post_id WHERE p.supervisor='" + useremail + "'";
+  console.log(sql);
+  db.query(sql, function (error, result) {
+    if (error) {
+      console.log("Error Connecting to DB");
+    } else {
+      res.send({ status: true, data: result });
+    }
+  });
+});
+
+app.post("/api/application/approve", (req, res) => {
+  let details = {
+    post_id: req.body.post_id,
+    user: req.body.user
+  };
+
+  console.log(details);
+
+  let sql = "UPDATE apply SET status = ? WHERE post_id = ? AND user = ?";
+
+  // // Extract values from the details object and create an array
+  let values = [
+    'approved',
+    details.post_id,
+    details.user
+  ];
+
+  db.query(sql, values, (error) => {
+    console.log(error);
+    if (error) {
+      res.send({ status: false, message: "Post Saved creation failed" });
+    } else {
+      res.send({ status: true, message: "Post Saved successfully" });
+    }
+  });
+});
+
+app.post("/api/application/delete", (req, res) => {
+  let details = {
+    post_id: req.body.post_id,
+    user: req.body.user
+  };
+
+  console.log(details);
+
+  let sql = "DELETE FROM apply WHERE post_id = ? AND user = ?";
+
+  // // Extract values from the details object and create an array
+  let values = [
+    details.post_id,
+    details.user
+  ];
+
+  db.query(sql, values, (error) => {
+    console.log(error);
+    if (error) {
+      res.send({ status: false, message: "Post Saved creation failed" });
+    } else {
+      res.send({ status: true, message: "Post Saved successfully" });
     }
   });
 });

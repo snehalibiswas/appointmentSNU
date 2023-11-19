@@ -13,7 +13,7 @@ export class SavedCardComponent {
 
   constructor(private http: HttpClient) {
     this.currentUser = localStorage.getItem('useremail');
-    this.fetchSaved();
+    this.makeAPICallInterval();
   }
 
   ngOnInit(): void {
@@ -32,8 +32,30 @@ export class SavedCardComponent {
 
   makeAPICallInterval(): void {
     // Set an interval for API call (e.g., every 5 seconds)
-    // setInterval(() => {
-    //   this.fetchSaved();
-    // }, 50000); // Interval in milliseconds (e.g., 5000 ms = 5 seconds)
+    setInterval(() => {
+      this.fetchSaved();
+    }, 5000); // Interval in milliseconds (e.g., 5000 ms = 5 seconds)
+  }
+
+  applySave(opportunityID: number){
+    const event: Object = {
+      post_id: opportunityID,
+      user: this.currentUser
+    };
+    this.http.post("http://localhost:3000/api/apply/add", event).subscribe((resultData: any) => {   //this.http -> server : sevrer.post -> server.js fill
+      console.log(resultData);
+    });
+    alert("Applied Successfully")
+  }
+
+  deleteSave(opportunityID: number){
+    const event: Object = {
+      post_id: opportunityID,
+      user: this.currentUser
+    };
+    this.http.post("http://localhost:3000/api/saves/delete", event).subscribe((resultData: any) => {   //this.http -> server : sevrer.post -> server.js fill
+      console.log(resultData);
+    });
+    alert("Deleted Successfully")
   }
 }
