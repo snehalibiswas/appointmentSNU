@@ -1,0 +1,45 @@
+<!-- <button class="dropbtn">Department</button>
+    <div class="dropdown-content">
+      
+        <a class="dropdown-item" href="#">hi</a>
+    </div> -->
+  
+<div *ngIf="profileDetails"> 
+
+<div class="btn1 dropdown">
+  <button class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+      Research Interest
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">{{profileDetails.research}}</a>
+  </div>
+</div>
+
+<div class="btn2 dropdown">
+  <button class="btn btn-light btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Education
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">{{profileDetails.education}}</a>
+  </div>
+</div>
+
+<div class="btn3 dropdown">
+  <button class="btn btn-light btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Work Experience
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">{{profileDetails.work}}</a>
+  </div>
+</div>
+
+<div class="btn4 dropdown">
+  <button class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+      Awards
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">{{profileDetails.awards}}</a>
+  </div>
+</div>
+
+</div>
