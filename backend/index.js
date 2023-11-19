@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
 // const postsRoutes = require('./routes/posts');
 const errorController = require('./controllers/error');
-const cors = require('cors');
+// const cors = require('cors');
 
 const app = express();
 
@@ -14,7 +14,7 @@ const db = mysql.createConnection({
 
   host: "localhost",
   user: "root",
-  password: "Telepath10",
+  password: "Saumya#237",
   database: "dbmsproject",
 
 });
@@ -269,7 +269,7 @@ app.put('/api/posts/form', (req, res) => {
 
 app.get('/api/opportunities/fetch', (req, res) => {
   // SQL query to retrieve all opportunities from the Opportunities table
-  let sql = `SELECT title, supervisor, job_type, department, hrs, stipend, DATE_FORMAT(created_at, '%Y-%m-%d') AS created_at  FROM posts`;
+  let sql = `SELECT post_id, title, user, supervisor, job_type, department, hrs, stipend, DATE_FORMAT(created_at, '%Y-%m-%d') AS created_at  FROM posts`;
 
   // Execute the query
   db.query(sql, (error, results, fields) => {
@@ -392,7 +392,7 @@ app.get("/api/apply/fetch/:useremail", (req, res) => {
 app.get("/api/application/fetch/:useremail", (req, res) => {
   var useremail = req.params.useremail;
   console.log("Fetching Applications  ", req.params.useremail);
-  var sql = "SELECT p.post_id, p.title, a.user, p.department, p.job_type FROM apply a JOIN posts p on a.post_id=p.post_id WHERE p.supervisor='" + useremail + "'";
+  var sql = "SELECT p.post_id, p.title, a.user, p.department, p.job_type FROM apply a JOIN posts p on a.post_id=p.post_id WHERE p.user='" + useremail + "'";
   console.log(sql);
   db.query(sql, function (error, result) {
     if (error) {
@@ -405,6 +405,7 @@ app.get("/api/application/fetch/:useremail", (req, res) => {
 
 app.post("/api/application/approve", (req, res) => {
   let details = {
+    status: "approved",
     post_id: req.body.post_id,
     user: req.body.user
   };
@@ -415,12 +416,13 @@ app.post("/api/application/approve", (req, res) => {
 
   // // Extract values from the details object and create an array
   let values = [
-    'approved',
+    details.status,
     details.post_id,
     details.user
   ];
 
   db.query(sql, values, (error) => {
+    console.log(sql)
     console.log(error);
     if (error) {
       res.send({ status: false, message: "Post Saved creation failed" });

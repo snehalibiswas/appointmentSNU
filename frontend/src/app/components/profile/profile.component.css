@@ -1,0 +1,62 @@
+/* prof-page.component.css */
+
+.prof-page-container {
+    display: flex;
+  }
+  
+  .left-side {
+    width: 60%;
+    padding: 20px;
+  }
+  
+  .right-side {
+    width: 40%;
+    padding: 20px;
+    border-left: 1px solid #ccc; /* Thin vertical line */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h2 {
+    font-size: 24px;
+    /* text-decoration: underline; */
+  }
+  
+  p {
+    /* text-decoration: underline; */
+  }
+  
+  .dropdown {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* Align label and select vertically */
+  }
+  
+  label {
+    font-size: 18px; /* Increase the font size */
+    /* text-decoration: underline; */
+  }
+  
+  select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px; /* Increase the font size */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none; /* Remove the default focus outline */
+    cursor: pointer;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+  
+  /* Optional: Add some styling for better visual separation */
+  select:hover {
+    border-color: #999; /* Highlight border on hover */
+  }
+  
+  select:focus {
+    border-color: #555; /* Highlight border on focus */
+  }
+  
+  .capatalize{
+    text-transform: capitalize; 
+}

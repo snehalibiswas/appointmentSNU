@@ -12,7 +12,8 @@ export class ApplicationCardComponent {
 
   constructor(private http: HttpClient) {
     this.currentUser = localStorage.getItem('useremail');
-    this.makeAPICallInterval();
+    // this.makeAPICallInterval();
+    this.fetchApplication();
   }
 
   ngOnInit(): void {
