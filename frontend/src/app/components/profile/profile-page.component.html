@@ -1,0 +1,14 @@
+<p>page works!</p>
+<div class="main">
+    <div *ngIf="profile", class="box section1">
+      <H2> {{profile.name}} </H2>
+      <br>
+      <p> {{ profile.role }} | {{ profile.deptid}} </p>
+      <p> {{ profile.room_no }}</p>
+      <p> Email: {{ profile.email }}</p>
+      <img src="dbms-project\src\app\tt.png">
+    </div>
+    <div class="box section2">
+      <app-dropdown-profile></app-dropdown-profile>
+    </div>
+</div>

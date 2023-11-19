@@ -1,0 +1,31 @@
+.main{
+  height: 100%;
+  width: 100%;
+  
+}
+
+.section1 {
+height: 100%;
+padding-left: 2rem;
+width: 70%;
+}
+
+.section2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+margin-left: 70%;
+width: 30%;
+padding: 5rem;
+}
+
+body {
+height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* .box{
+  float:left;
+} */
