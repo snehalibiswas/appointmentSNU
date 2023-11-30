@@ -1,3 +1,6 @@
+<div *ngIf="Saver.length==0">
+    No Saved opportunities
+</div>
 
 <div class="cont-save" *ngFor="let save of Saver">
     <h2>{{save.title}}</h2>

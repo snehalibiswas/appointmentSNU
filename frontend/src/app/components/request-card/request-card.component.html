@@ -1,5 +1,8 @@
 <!-- {{requests | json}} -->
 
+<div *ngIf="requests.length==0">
+    No Requested meetings
+</div>
 <div class="cont-req" *ngFor="let req of requests">
     <h2>By: {{req.scheduled_by}}</h2>
     <h3>Start Time: {{req.starttime |date:'medium'}}</h3>
