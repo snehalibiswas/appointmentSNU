@@ -60,3 +60,20 @@
   .capatalize{
     text-transform: capitalize; 
 }
+
+.flex-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-form input{
+  height: 20px;
+}
+.flex-form label {
+  margin-top: 30px;
+}
+
+.flex-form button{
+  margin-top: 20px;
+  width: 120px;
+}

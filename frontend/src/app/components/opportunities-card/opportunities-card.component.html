@@ -1,4 +1,8 @@
 <!-- {{opportunities | json}} -->
+<div *ngIf="opportunities.length==0">
+    No opportunities listed
+</div>
+
 <div class="cont-opp" *ngFor="let oppo of opportunities">
     <div class="row-opp">
     <h2>{{oppo.title}}</h2>

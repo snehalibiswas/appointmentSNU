@@ -1,3 +1,7 @@
+<div *ngIf="users.length==0">
+    No listed professors in this department
+</div>
+
 <div class="professor-list">
     <div *ngFor="let user of users">
         <app-professor-card  [users]="user"></app-professor-card>

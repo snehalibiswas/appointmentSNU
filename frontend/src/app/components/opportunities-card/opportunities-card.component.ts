@@ -43,7 +43,7 @@ export class OpportunitiesCardComponent {
     this.http.post("http://localhost:3000/api/saves/add", event).subscribe((resultData: any) => {   //this.http -> server : sevrer.post -> server.js fill
       console.log(resultData);
     });
-    alert("Meeting Registered Successfully")
+    alert("Post Saved Successfully")
 
   }
 
@@ -55,7 +55,7 @@ export class OpportunitiesCardComponent {
     this.http.post("http://localhost:3000/api/apply/add", event).subscribe((resultData: any) => {   //this.http -> server : sevrer.post -> server.js fill
       console.log(resultData);
     });
-    alert("Meeting Registered Successfully")
+    alert("Applied to Post Successfully")
   }
   
 }
