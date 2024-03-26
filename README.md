@@ -1,34 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student-Faculty Interaction Platform</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-        code {
-            background-color: #f4f4f4;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-family: Consolas, monospace;
-        }
-        pre {
-            background-color: #f4f4f4;
-            padding: 15px;
-            border-radius: 4px;
-            overflow-x: auto;
-        }
-    </style>
-</head>
-<body>
+
     <h1>Student-Faculty Interaction Platform</h1>
 
     <h2>Overview</h2>
@@ -93,5 +63,3 @@
     <ul>
         <li>Mention any acknowledgements, inspirations, or references used in the project.</li>
     </ul>
-</body>
-</html>
