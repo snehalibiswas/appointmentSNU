@@ -21,7 +21,7 @@ The Student-Faculty Interaction Platform is a centralized system designed to str
 - Backend: `cd backend`
 
 3. **Install Dependencies:**
--install npm
+- install npm
 
 5. **Configure Frontend Routing:**
 - Update routing configurations as needed in the frontend application.
@@ -47,7 +47,9 @@ The Student-Faculty Interaction Platform is a centralized system designed to str
 4. Ensure to follow the platform guidelines for smooth usage.
 
 ## Contributors
-- [Your Name](link_to_github_profile) - Role/Responsibility
+- [Snehali Biswas](https://github.com/snehalibiswas)
+- [Richard Joe](https://github.com/Telepath10)
+- [Abhishek Soni](https://github.com/ABHISHEKSONI121)
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
